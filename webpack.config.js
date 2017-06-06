@@ -51,7 +51,7 @@ const getPlugins = () => {
     }),
 
     new ExtractTextPlugin({
-      filename: 'styles.[chunkhash].css',
+      filename: isProd ? 'styles.[contenthash].css' : 'styles.css',
       allChunks: true,
     }),
   ];
