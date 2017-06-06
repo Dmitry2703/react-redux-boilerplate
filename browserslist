@@ -1,0 +1,9 @@
+# Browsers that we support
+
+# Desktop browsers
+Explorer >= 11
+Edge >= 12
+Safari >= 8
+Chrome >= 45
+Opera >= 32
+Firefox >= 40

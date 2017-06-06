@@ -1,0 +1,15 @@
+/**
+ * Normalize.css
+ */
+@import 'normalize.css/normalize.css';
+
+/**
+ * Components
+ */
+@import 'test.css';
+
+body {
+  background-color: #ccc;
+  font-size: 2rem;
+  color: #999;
+}

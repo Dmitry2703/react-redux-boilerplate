@@ -1,0 +1,8 @@
+$var: #000;
+
+.test {
+  display: flex;
+  color: $var;
+  transform: translateX(100px);
+  transition: all 0.5s ease;
+}
