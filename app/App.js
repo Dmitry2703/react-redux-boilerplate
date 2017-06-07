@@ -20,7 +20,7 @@ const App = props => (
       <li>
         <button
           type="button"
-          onClick={props.incrementA}
+          onClick={() => props.increment('A')}
         >
           A: {props.counterA}
         </button>
@@ -28,7 +28,7 @@ const App = props => (
       <li>
         <button
           type="button"
-          onClick={props.incrementB}
+          onClick={() => props.increment('B')}
         >
           B: {props.counterB}
         </button>
@@ -36,7 +36,7 @@ const App = props => (
       <li>
         <button
           type="button"
-          onClick={props.incrementC}
+          onClick={() => props.increment('C')}
         >
           C: {props.counterC}
         </button>
