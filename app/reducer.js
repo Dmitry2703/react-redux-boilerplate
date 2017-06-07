@@ -1,11 +1,16 @@
 import { combineReducers } from 'redux';
 import { routerReducer } from 'react-router-redux';
 
+export const types = {
+  INCREMENT: 'INCREMENT',
+  TOGGLE_COLOR: '@@A/TOGGLE_COLOR',
+};
+
 const createCounterWithNamedType = (counterName = '') => (
   (state = 0, action) => {
     if (action.name !== counterName) return state;
     switch (action.type) {
-      case 'INCREMENT':
+      case types.INCREMENT:
         return state + 1;
       default:
         return state;
@@ -15,7 +20,7 @@ const createCounterWithNamedType = (counterName = '') => (
 
 const color = (state = true, action) => {
   switch (action.type) {
-    case '@@A/TOGGLE_COLOR':
+    case types.TOGGLE_COLOR:
       return !state;
     default:
       return state;
@@ -70,13 +75,26 @@ const rootReducer = combineReducers({
 
 export default rootReducer;
 
-export const actions = {
-  increment: name => ({
-    type: 'INCREMENT',
-    name,
-  }),
+const makeActionCreator = (type, ...argNames) => (
+  (...args) => {
+    const action = { type };
+    argNames.forEach((arg, index) => action[argNames[index]] = args[index]);
+    return action;
+  }
+);
 
-  toggleColor: () => ({
-    type: '@@A/TOGGLE_COLOR',
-  }),
+export const actions = {
+  increment: makeActionCreator(types.INCREMENT, 'name', 'id', 'test'),
+  toggleColor: makeActionCreator(types.TOGGLE_COLOR),
 };
+
+// export const actions = {
+//   increment: name => ({
+//     type: 'INCREMENT',
+//     name,
+//   }),
+//
+//   toggleColor: () => ({
+//     type: '@@A/TOGGLE_COLOR',
+//   }),
+// };
