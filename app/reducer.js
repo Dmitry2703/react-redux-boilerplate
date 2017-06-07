@@ -13,8 +13,22 @@ const createCounterWithNamedType = (counterName = '') => (
   }
 );
 
+const color = (state = true, action) => {
+  switch (action.type) {
+    case '@@A/TOGGLE_COLOR':
+      return !state;
+    default:
+      return state;
+  }
+};
+
+const reducerA = combineReducers({
+  count: createCounterWithNamedType('A'),
+  color,
+});
+
 const rootReducer = combineReducers({
-  counterA: createCounterWithNamedType('A'),
+  counterA: reducerA,
   counterB: createCounterWithNamedType('B'),
   counterC: createCounterWithNamedType('C'),
   routing: routerReducer,
@@ -60,5 +74,9 @@ export const actions = {
   increment: name => ({
     type: 'INCREMENT',
     name,
+  }),
+
+  toggleColor: () => ({
+    type: '@@A/TOGGLE_COLOR',
   }),
 };

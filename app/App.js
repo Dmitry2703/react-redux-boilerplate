@@ -5,7 +5,8 @@ import { connect } from 'react-redux';
 import { actions } from './reducer';
 
 const mapStateToProps = state => ({
-  counterA: state.counterA,
+  counterA: state.counterA.count,
+  colorA: state.counterA.color ? 'white' : '#ccc',
   counterB: state.counterB,
   counterC: state.counterC,
 });
@@ -20,7 +21,10 @@ const App = props => (
       <li>
         <button
           type="button"
+          style={{ background: props.colorA }}
           onClick={() => props.increment('A')}
+          onMouseOver={props.toggleColor}
+          onMouseLeave={props.toggleColor}
         >
           A: {props.counterA}
         </button>
