@@ -1,12 +1,17 @@
 /**
  * Normalize.css
  */
-@import 'normalize.css/normalize.css';
+@import '~normalize.css/normalize.css';
+
+/**
+ * Basic
+ */
+@import './mixins';
 
 /**
  * Components
  */
-@import 'test.css';
+@import './test';
 
 body {
   background-color: #ccc;

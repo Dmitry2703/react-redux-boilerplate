@@ -91,7 +91,7 @@ module.exports = {
       'babel-polyfill',
       'whatwg-fetch',
       path.resolve(srcFolder, 'index.js'),
-      path.resolve(srcFolder, 'index.css'),
+      path.resolve(srcFolder, 'index.scss'),
     ],
   },
 
@@ -145,16 +145,16 @@ module.exports = {
       },
 
       {
-        test: /\.css$/,
+        test: /\.scss$/,
         exclude: /node_modules/,
         use: ['css-hot-loader'].concat(ExtractTextPlugin.extract({
           fallback: 'style-loader',
-          use: ['css-loader', 'postcss-loader'],
+          use: ['css-loader', 'postcss-loader', 'sass-loader'],
         })),
       },
 
       {
-        test: /\.svg$/,
+        test: /\.(jpe?g|png|gif|svg)$/i,
         exclude: /node_modules/,
         use: {
           loader: 'file-loader',
