@@ -10,7 +10,7 @@ const srcFolder = path.resolve(__dirname, 'app');
 
 const isProd = process.env.NODE_ENV === 'production';
 
-const babelPresets = ['es2015', 'stage-0', 'react'];
+const babelPresets = ['es2015', 'stage-3', 'react'];
 if (!isProd) babelPresets.push('react-hmre');
 
 const getPlugins = () => {
