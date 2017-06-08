@@ -115,6 +115,9 @@ module.exports = {
     hot: !isProd,
     contentBase: './public',
     historyApiFallback: true,
+    watchOptions: {
+      ignored: /node_modules/,
+    },
   },
 
   module: {
